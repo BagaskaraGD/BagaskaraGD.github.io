@@ -1,0 +1,143 @@
+---
+import { profile } from '../../data/profile';
+import { coreSkillBars, techStack } from '../../data/skills';
+import SectionHeader from '../ui/SectionHeader.astro';
+
+const barColorMap: Record<string, string> = {
+  cyan: '',
+  purple: 'violet',
+  emerald: 'emerald',
+  amber: 'amber',
+};
+---
+
+<section class="profile" id="about">
+  <div class="shell">
+    <SectionHeader
+      eyebrow="// character.profile"
+      title="The developer behind the keyboard"
+      asideText="Full bio →"
+      asideHref="/about"
+    />
+
+    <article class="panel profile-card reveal">
+      <span class="pixel-corner tl"></span>
+      <span class="pixel-corner tr"></span>
+      <span class="pixel-corner bl"></span>
+      <span class="pixel-corner br"></span>
+
+      <!-- Avatar column -->
+      <div class="profile-avatar">
+        <div class="avatar-frame">
+          <div class="avatar-inner">
+            <!-- Pixel-art developer bust -->
+            <svg
+              width="120" height="120"
+              viewBox="0 0 16 16"
+              shape-rendering="crispEdges"
+              aria-label="Pixel avatar"
+            >
+              <rect x="4" y="2" width="8" height="1" fill="#1f2a4a" />
+              <rect x="3" y="3" width="10" height="2" fill="#1f2a4a" />
+              <rect x="4" y="5" width="8" height="4" fill="#e7c39a" />
+              <rect x="4" y="5" width="3" height="1" fill="#1f2a4a" />
+              <rect x="10" y="5" width="2" height="1" fill="#1f2a4a" />
+              <rect x="6" y="7" width="1" height="1" fill="#0a1124" />
+              <rect x="9" y="7" width="1" height="1" fill="#0a1124" />
+              <rect x="5" y="7" width="3" height="1" fill="#22d3ee" opacity="0.45" />
+              <rect x="8" y="7" width="3" height="1" fill="#22d3ee" opacity="0.45" />
+              <rect x="7" y="8" width="2" height="1" fill="#0a1124" />
+              <rect x="6" y="9" width="4" height="1" fill="#c89c75" />
+              <rect x="3" y="10" width="10" height="6" fill="#0e1a3a" />
+              <rect x="5" y="10" width="6" height="3" fill="#101a36" />
+              <rect x="7" y="10" width="2" height="2" fill="#22d3ee" />
+              <rect x="2" y="11" width="1" height="5" fill="#0a1124" />
+              <rect x="13" y="11" width="1" height="5" fill="#0a1124" />
+            </svg>
+          </div>
+        </div>
+        <div class="avatar-name">{profile.displayName}</div>
+        <div class="avatar-class">CLS · {profile.class}</div>
+      </div>
+
+      <!-- Stats column -->
+      <div class="profile-stats">
+        <div class="profile-stats-grid">
+          <div class="stat-row">
+            <div class="label">Full Name</div>
+            <div class="value">{profile.name}</div>
+          </div>
+          <div class="stat-row">
+            <div class="label">Class</div>
+            <div class="value">{profile.role} <span class="sub">/ Laravel main</span></div>
+          </div>
+          <div class="stat-row">
+            <div class="label">Region</div>
+            <div class="value">{profile.locationFull}</div>
+          </div>
+          <div class="stat-row">
+            <div class="label">Experience</div>
+            <div class="value">{profile.experience} <span class="sub">{profile.experienceLabel}</span></div>
+          </div>
+          <div class="stat-row">
+            <div class="label">Specialty</div>
+            <div class="value">{profile.specialty}</div>
+          </div>
+          <div class="stat-row">
+            <div class="label">Currently Learning</div>
+            <div class="value">{profile.currentlyLearning} <span class="sub">+ {profile.currentlyLearningDetail}</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Skill bars column -->
+      <div class="profile-bars">
+        <h4>// core attributes</h4>
+        {coreSkillBars.map((skill) => (
+          <div class={`bar ${barColorMap[skill.color] ?? ''}`}>
+            <div class="bar-head">
+              <span class="name">{skill.name}</span>
+              <span class="val">{skill.level} / 100</span>
+            </div>
+            <div class="bar-track">
+              <span class="bar-fill" style={`width: ${skill.level}%`}></span>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Tech stack strip -->
+      <div class="profile-strip">
+        <div class="tags">
+          {techStack.map((tech) => (
+            <span class={`tag ${tech.color !== 'cyan' ? tech.color : ''}`}>
+              <span class="swatch"></span>
+              {tech.name}
+            </span>
+          ))}
+        </div>
+        <span>EQUIPMENT // daily stack</span>
+      </div>
+    </article>
+  </div>
+</section>
+
+<script>
+  // Animate bars when they scroll into view
+  (function () {
+    const bars = document.querySelectorAll<HTMLElement>('.bar-fill');
+    bars.forEach((b) => {
+      const target = b.style.width;
+      b.style.width = '0%';
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            (e.target as HTMLElement).style.width = target;
+            io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      io.observe(b);
+    });
+  })();
+</script>

@@ -1,0 +1,843 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Bagaskara Gita Dewanta — Personal Developer Hub</title>
+<meta name="description" content="Web Developer · Laravel Enthusiast · Flutter Learner. Personal developer hub of Bagaskara Gita Dewanta — portfolio, services, and developer notes." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=VT323&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- ===================== BACKGROUND ===================== -->
+<div class="page-bg" aria-hidden="true">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <div class="scanline"></div>
+</div>
+
+<!-- ===================== NAVBAR ===================== -->
+<header class="nav" data-screen-label="00 Navbar">
+  <div class="shell nav-inner">
+    <a href="#home" class="brand" aria-label="Bagaskara — home">
+      <span class="brand-mark"><span>BG</span></span>
+      <span class="brand-name">bagaskara<span class="dot">.</span>dev</span>
+    </a>
+
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#home" class="is-active">Home</a>
+      <a href="#about">About</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#services">Services</a>
+      <a href="#devnotes">Dev Notes</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="nav-cta">
+      <span class="nav-status" title="Currently available for new quests">
+        <span class="pulse"></span>
+        AVAILABLE FOR HIRE
+      </span>
+      <a href="#contact" class="btn btn-primary btn-sm">
+        Start a Quest
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 5 7 7-7 7"/></svg>
+      </a>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M3 12h18"/><path d="M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- mobile menu -->
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <nav>
+    <a href="#home"><span>Home</span><span class="k">/home</span></a>
+    <a href="#about"><span>About</span><span class="k">/about</span></a>
+    <a href="#portfolio"><span>Portfolio</span><span class="k">/portfolio</span></a>
+    <a href="#services"><span>Services</span><span class="k">/services</span></a>
+    <a href="#devnotes"><span>Dev Notes</span><span class="k">/dev-notes</span></a>
+    <a href="#contact"><span>Contact</span><span class="k">/contact</span></a>
+  </nav>
+  <div class="mm-cta">
+    <a class="btn btn-ghost" href="#portfolio">View Portfolio</a>
+    <a class="btn btn-primary" href="#contact">Start a Quest</a>
+  </div>
+</div>
+
+<main id="home">
+
+<!-- ===================== HERO ===================== -->
+<section class="hero" data-screen-label="01 Hero">
+  <div class="shell hero-grid">
+    <div class="hero-copy reveal">
+      <span class="hero-meta">
+        <span class="pulse"></span>
+        STATUS: ONLINE
+        <span class="sep">·</span>
+        <span class="pixel-lvl">LVL 04</span>
+        <span class="sep">·</span>
+        SURABAYA · ID
+      </span>
+
+      <h1>
+        Building <span class="accent">reliable systems</span><br/>
+        one quest at a time<span class="underscore">_</span>
+      </h1>
+
+      <div class="hero-role">
+        <span><span class="dot"></span>Web Developer</span>
+        <span><span class="dot"></span>Laravel Enthusiast</span>
+        <span><span class="dot"></span>Flutter Learner</span>
+      </div>
+
+      <p class="hero-tagline">
+        Hi, I'm <strong>Bagaskara Gita Dewanta</strong> — a developer from Surabaya who builds clean,
+        maintainable web systems with <strong>Laravel</strong>, <strong>Astro</strong> and
+        <strong>Tailwind</strong>, and ships small mobile apps with <strong>Flutter</strong>.
+        This hub is my workshop: portfolio, services, and the dev notes I keep along the way.
+      </p>
+
+      <div class="hero-cta">
+        <a class="btn btn-primary btn-lg" href="#portfolio">
+          View Portfolio
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 5 7 7-7 7"/></svg>
+        </a>
+        <a class="btn btn-ghost btn-lg" href="#devnotes">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+          Read Dev Notes
+        </a>
+        <a class="btn btn-ghost btn-lg" href="#services">
+          See Services
+        </a>
+      </div>
+
+      <div class="hero-stats">
+        <div>
+          <div class="stat-num">12<span class="unit">+</span></div>
+          <div class="stat-label">Projects Shipped</div>
+        </div>
+        <div>
+          <div class="stat-num">3<span class="unit">yrs</span></div>
+          <div class="stat-label">Building on the Web</div>
+        </div>
+        <div>
+          <div class="stat-num">40<span class="unit">+</span></div>
+          <div class="stat-label">Dev Notes Logged</div>
+        </div>
+        <div>
+          <div class="stat-num">100<span class="unit">%</span></div>
+          <div class="stat-label">Coffee-Powered</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: terminal window -->
+    <div class="terminal reveal" aria-hidden="true">
+      <div class="terminal-bar">
+        <div class="term-dots"><span></span><span></span><span></span></div>
+        <div class="term-title">~/bagaskara — zsh — 80×24</div>
+        <div class="term-tabs">
+          <span class="active">whoami.sh</span>
+          <span>quests.log</span>
+          <span>readme.md</span>
+        </div>
+      </div>
+      <pre class="terminal-body"><span class="line"><span class="com"># initializing developer profile…</span></span><span class="line"><span class="prompt">bagaskara@hub</span> <span class="cmd">~</span> $ <span class="cmd">whoami --json</span></span><span class="line"><span class="out">{</span></span><span class="line"><span class="out">  </span><span class="key">"name"</span><span class="out">: </span><span class="str">"Bagaskara Gita Dewanta"</span><span class="out">,</span></span><span class="line"><span class="out">  </span><span class="key">"role"</span><span class="out">: </span><span class="str">"Web Developer"</span><span class="out">,</span></span><span class="line"><span class="out">  </span><span class="key">"location"</span><span class="out">: </span><span class="str">"Surabaya, ID"</span><span class="out">,</span></span><span class="line"><span class="out">  </span><span class="key">"stack"</span><span class="out">: [</span><span class="str">"Laravel"</span><span class="out">, </span><span class="str">"Astro"</span><span class="out">, </span><span class="str">"Tailwind"</span><span class="out">,</span></span><span class="line"><span class="out">            </span><span class="str">"Flutter"</span><span class="out">, </span><span class="str">"MySQL"</span><span class="out">, </span><span class="str">"Docker"</span><span class="out">],</span></span><span class="line"><span class="out">  </span><span class="key">"learning"</span><span class="out">: </span><span class="str">"clean architecture, UX polish"</span><span class="out">,</span></span><span class="line"><span class="out">  </span><span class="key">"open_to"</span><span class="out">: [</span><span class="str">"freelance"</span><span class="out">, </span><span class="str">"collab"</span><span class="out">]</span></span><span class="line"><span class="out">}</span></span><span class="line">&nbsp;</span><span class="line"><span class="prompt">bagaskara@hub</span> <span class="cmd">~</span> $ <span class="fn">quest</span> --list <span class="key">--limit</span> <span class="num">3</span></span><span class="line"><span class="out">  ✦ </span><span class="cmd">SchoolEdu — School Management System</span> <span class="com">(in progress)</span></span><span class="line"><span class="out">  ✦ </span><span class="cmd">WarungPOS — Restaurant POS &amp; Kitchen Display</span></span><span class="line"><span class="out">  ✦ </span><span class="cmd">FieldKit — Flutter inventory checker</span></span><span class="line">&nbsp;</span><span class="line"><span class="prompt">bagaskara@hub</span> <span class="cmd">~</span> $ <span class="term-cursor"></span></span></pre>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CHARACTER PROFILE ===================== -->
+<section class="profile" id="about" data-screen-label="02 Character Profile">
+  <div class="shell">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow">// character.profile</span>
+        <h2>The developer behind the keyboard</h2>
+      </div>
+      <div class="head-aside">
+        <a href="#about">Full bio →</a>
+      </div>
+    </div>
+
+    <article class="panel profile-card reveal">
+      <span class="pixel-corner tl"></span>
+      <span class="pixel-corner tr"></span>
+      <span class="pixel-corner bl"></span>
+      <span class="pixel-corner br"></span>
+
+      <div class="profile-avatar">
+        <div class="avatar-frame">
+          <div class="avatar-inner">
+            <!-- Pixel-art bust placeholder -->
+            <svg class="avatar-pixel" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true">
+              <!-- background subtle -->
+              <rect width="16" height="16" fill="transparent"/>
+              <!-- hair -->
+              <rect x="4" y="2" width="8" height="1" fill="#1f2a4a"/>
+              <rect x="3" y="3" width="10" height="2" fill="#1f2a4a"/>
+              <!-- face -->
+              <rect x="4" y="5" width="8" height="4" fill="#e7c39a"/>
+              <!-- hair fringe -->
+              <rect x="4" y="5" width="3" height="1" fill="#1f2a4a"/>
+              <rect x="10" y="5" width="2" height="1" fill="#1f2a4a"/>
+              <!-- eyes -->
+              <rect x="6" y="7" width="1" height="1" fill="#0a1124"/>
+              <rect x="9" y="7" width="1" height="1" fill="#0a1124"/>
+              <!-- visor / glasses -->
+              <rect x="5" y="7" width="3" height="1" fill="#22d3ee" opacity="0.45"/>
+              <rect x="8" y="7" width="3" height="1" fill="#22d3ee" opacity="0.45"/>
+              <!-- mouth -->
+              <rect x="7" y="8" width="2" height="1" fill="#0a1124"/>
+              <!-- neck -->
+              <rect x="6" y="9" width="4" height="1" fill="#c89c75"/>
+              <!-- shirt / hoodie -->
+              <rect x="3" y="10" width="10" height="6" fill="#0e1a3a"/>
+              <rect x="5" y="10" width="6" height="3" fill="#101a36"/>
+              <!-- collar accent -->
+              <rect x="7" y="10" width="2" height="2" fill="#22d3ee"/>
+              <!-- shoulders -->
+              <rect x="2" y="11" width="1" height="5" fill="#0a1124"/>
+              <rect x="13" y="11" width="1" height="5" fill="#0a1124"/>
+            </svg>
+          </div>
+        </div>
+        <div class="avatar-name">BAGASKARA</div>
+        <div class="avatar-class">CLS · Full-Stack Web Mage</div>
+      </div>
+
+      <div class="profile-stats">
+        <div class="profile-stats-grid">
+          <div class="stat-row">
+            <div class="label">Full Name</div>
+            <div class="value">Bagaskara Gita Dewanta</div>
+          </div>
+          <div class="stat-row">
+            <div class="label">Class</div>
+            <div class="value">Web Developer <span class="sub">/ Laravel main</span></div>
+          </div>
+          <div class="stat-row">
+            <div class="label">Region</div>
+            <div class="value">Surabaya, Indonesia</div>
+          </div>
+          <div class="stat-row">
+            <div class="label">Experience</div>
+            <div class="value">3 yrs <span class="sub">in the field</span></div>
+          </div>
+          <div class="stat-row">
+            <div class="label">Specialty</div>
+            <div class="value">Web systems &amp; admin panels</div>
+          </div>
+          <div class="stat-row">
+            <div class="label">Currently Learning</div>
+            <div class="value">Flutter <span class="sub">+ clean architecture</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="profile-bars">
+        <h4>// core attributes</h4>
+        <div class="bar">
+          <div class="bar-head"><span class="name">Backend (Laravel · PHP)</span><span class="val">86 / 100</span></div>
+          <div class="bar-track"><span class="bar-fill" style="width:86%"></span></div>
+        </div>
+        <div class="bar violet">
+          <div class="bar-head"><span class="name">Frontend (Astro · Tailwind)</span><span class="val">78 / 100</span></div>
+          <div class="bar-track"><span class="bar-fill" style="width:78%"></span></div>
+        </div>
+        <div class="bar emerald">
+          <div class="bar-head"><span class="name">Database (MySQL)</span><span class="val">72 / 100</span></div>
+          <div class="bar-track"><span class="bar-fill" style="width:72%"></span></div>
+        </div>
+        <div class="bar amber">
+          <div class="bar-head"><span class="name">Mobile (Flutter)</span><span class="val">48 / 100</span></div>
+          <div class="bar-track"><span class="bar-fill" style="width:48%"></span></div>
+        </div>
+      </div>
+
+      <div class="profile-strip">
+        <div class="tags">
+          <span class="tag"><span class="swatch"></span>Laravel</span>
+          <span class="tag blue"><span class="swatch"></span>Astro</span>
+          <span class="tag emerald"><span class="swatch"></span>Tailwind</span>
+          <span class="tag amber"><span class="swatch"></span>Flutter</span>
+          <span class="tag purple"><span class="swatch"></span>Docker</span>
+          <span class="tag rose"><span class="swatch"></span>Git</span>
+          <span class="tag"><span class="swatch"></span>MySQL</span>
+        </div>
+        <span>EQUIPMENT // daily stack</span>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ===================== PORTFOLIO ===================== -->
+<section class="portfolio" id="portfolio" data-screen-label="03 Portfolio">
+  <div class="shell">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow">// featured.quests</span>
+        <h2>Selected work from the journey log</h2>
+      </div>
+      <div class="head-aside">
+        <a href="#portfolio">Browse all projects →</a>
+      </div>
+    </div>
+
+    <div class="portfolio-grid">
+      <!-- Large featured -->
+      <a href="#" class="project-card large reveal">
+        <span class="quest-tag"><span class="star">★</span> MAIN QUEST</span>
+        <div class="project-thumb">
+          <svg viewBox="0 0 600 380" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.35"/>
+                <stop offset="100%" stop-color="#a78bfa" stop-opacity="0.15"/>
+              </linearGradient>
+            </defs>
+            <rect width="600" height="380" fill="url(#g1)"/>
+            <!-- mock dashboard -->
+            <rect x="40" y="40" width="520" height="60" rx="10" fill="#0a1124" stroke="#1f2a4a"/>
+            <rect x="56" y="58" width="120" height="10" rx="3" fill="#22d3ee" opacity="0.8"/>
+            <rect x="56" y="76" width="200" height="8" rx="3" fill="#9fb0c9" opacity="0.5"/>
+            <circle cx="530" cy="70" r="14" fill="#22d3ee" opacity="0.8"/>
+            <rect x="40" y="120" width="160" height="160" rx="10" fill="#0a1124" stroke="#1f2a4a"/>
+            <rect x="56" y="138" width="80" height="8" rx="3" fill="#9fb0c9" opacity="0.5"/>
+            <rect x="56" y="160" width="128" height="24" rx="4" fill="#22d3ee" opacity="0.9"/>
+            <rect x="56" y="200" width="100" height="6" rx="3" fill="#3a4a78"/>
+            <rect x="56" y="216" width="120" height="6" rx="3" fill="#3a4a78"/>
+            <rect x="56" y="232" width="80" height="6" rx="3" fill="#3a4a78"/>
+            <rect x="56" y="252" width="60" height="14" rx="4" fill="#a78bfa" opacity="0.7"/>
+            <rect x="220" y="120" width="340" height="160" rx="10" fill="#0a1124" stroke="#1f2a4a"/>
+            <!-- chart -->
+            <polyline points="240,250 280,210 320,225 360,180 400,200 440,150 480,170 520,130 540,150" fill="none" stroke="#22d3ee" stroke-width="2.5"/>
+            <polyline points="240,250 280,210 320,225 360,180 400,200 440,150 480,170 520,130 540,150 540,260 240,260" fill="#22d3ee" opacity="0.15"/>
+            <g fill="#3a4a78">
+              <circle cx="240" cy="250" r="3"/><circle cx="280" cy="210" r="3"/><circle cx="320" cy="225" r="3"/><circle cx="360" cy="180" r="3"/><circle cx="400" cy="200" r="3"/><circle cx="440" cy="150" r="3"/><circle cx="480" cy="170" r="3"/><circle cx="520" cy="130" r="3"/>
+            </g>
+            <rect x="40" y="300" width="520" height="50" rx="10" fill="#0a1124" stroke="#1f2a4a"/>
+            <rect x="56" y="316" width="60" height="18" rx="4" fill="#34d399" opacity="0.8"/>
+            <rect x="126" y="316" width="80" height="18" rx="4" fill="#1f2a4a"/>
+            <rect x="216" y="316" width="100" height="18" rx="4" fill="#1f2a4a"/>
+            <rect x="326" y="316" width="70" height="18" rx="4" fill="#1f2a4a"/>
+            <rect x="406" y="316" width="138" height="18" rx="4" fill="#1f2a4a"/>
+          </svg>
+        </div>
+        <div class="project-body">
+          <div class="project-meta">
+            <span>2025</span><span class="dot"></span><span>School Mgmt System</span><span class="dot"></span><span>Client Work</span>
+          </div>
+          <h3 class="project-title">SchoolEdu — School Management &amp; Grading System</h3>
+          <p class="project-desc">A multi-role Laravel system handling students, teachers, classes, grades, and report cards. Replaced an Excel-driven workflow with role-based dashboards, exportable reports, and audit logs.</p>
+          <div class="project-foot">
+            <div class="project-tags">
+              <span class="tag"><span class="swatch"></span>Laravel</span>
+              <span class="tag emerald"><span class="swatch"></span>MySQL</span>
+              <span class="tag blue"><span class="swatch"></span>Tailwind</span>
+              <span class="tag purple"><span class="swatch"></span>Livewire</span>
+            </div>
+            <span class="project-link">
+              View case study
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+            </span>
+          </div>
+        </div>
+      </a>
+
+      <div class="project-stack">
+        <a href="#" class="project-card small reveal">
+          <span class="quest-tag" style="border-color: rgba(167,139,250,0.45); color:#c4b5fd;">◆ SIDE QUEST</span>
+          <div class="project-thumb" style="background: linear-gradient(135deg,#10172e,#1a1230);">
+            <svg viewBox="0 0 600 300" preserveAspectRatio="xMidYMid slice">
+              <rect width="600" height="300" fill="transparent"/>
+              <!-- phone mockup -->
+              <rect x="220" y="30" width="160" height="240" rx="22" fill="#0a1124" stroke="#a78bfa" stroke-opacity="0.4"/>
+              <rect x="232" y="50" width="136" height="200" rx="10" fill="#101a36"/>
+              <rect x="244" y="64" width="80" height="10" rx="3" fill="#a78bfa" opacity="0.8"/>
+              <rect x="244" y="82" width="112" height="6" rx="3" fill="#3a4a78"/>
+              <rect x="244" y="100" width="112" height="40" rx="8" fill="#0a1124" stroke="#1f2a4a"/>
+              <rect x="254" y="110" width="24" height="20" rx="4" fill="#34d399" opacity="0.8"/>
+              <rect x="286" y="112" width="60" height="6" rx="3" fill="#9fb0c9" opacity="0.6"/>
+              <rect x="286" y="124" width="40" height="5" rx="3" fill="#3a4a78"/>
+              <rect x="244" y="150" width="112" height="40" rx="8" fill="#0a1124" stroke="#1f2a4a"/>
+              <rect x="254" y="160" width="24" height="20" rx="4" fill="#22d3ee" opacity="0.8"/>
+              <rect x="286" y="162" width="60" height="6" rx="3" fill="#9fb0c9" opacity="0.6"/>
+              <rect x="286" y="174" width="40" height="5" rx="3" fill="#3a4a78"/>
+              <rect x="244" y="200" width="112" height="40" rx="8" fill="#0a1124" stroke="#1f2a4a"/>
+              <rect x="254" y="210" width="24" height="20" rx="4" fill="#fbbf24" opacity="0.8"/>
+              <rect x="286" y="212" width="60" height="6" rx="3" fill="#9fb0c9" opacity="0.6"/>
+              <rect x="286" y="224" width="40" height="5" rx="3" fill="#3a4a78"/>
+            </svg>
+          </div>
+          <div class="project-body">
+            <div class="project-meta">
+              <span>2025</span><span class="dot"></span><span>Mobile · Flutter</span>
+            </div>
+            <h3 class="project-title">FieldKit — Inventory Companion App</h3>
+            <p class="project-desc">A field-friendly Flutter app for stock checks: scan, count, sync. Offline-first with SQLite and a tiny Laravel API for sync.</p>
+            <div class="project-foot">
+              <div class="project-tags">
+                <span class="tag amber"><span class="swatch"></span>Flutter</span>
+                <span class="tag"><span class="swatch"></span>SQLite</span>
+              </div>
+              <span class="project-link">
+                Details
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="project-card small reveal">
+          <span class="quest-tag" style="border-color: rgba(52,211,153,0.45); color:#6ee7b7;">✦ DAILY</span>
+          <div class="project-thumb" style="background: linear-gradient(135deg,#0a1f1a,#10172e);">
+            <svg viewBox="0 0 600 300" preserveAspectRatio="xMidYMid slice">
+              <rect width="600" height="300" fill="transparent"/>
+              <!-- POS terminal -->
+              <rect x="40" y="40" width="260" height="220" rx="10" fill="#0a1124" stroke="#1f2a4a"/>
+              <rect x="56" y="56" width="228" height="34" rx="6" fill="#101a36"/>
+              <rect x="64" y="66" width="100" height="14" rx="3" fill="#34d399" opacity="0.85"/>
+              <rect x="56" y="100" width="228" height="44" rx="6" fill="#101a36"/>
+              <rect x="64" y="110" width="120" height="8" rx="3" fill="#9fb0c9" opacity="0.6"/>
+              <rect x="64" y="124" width="60" height="6" rx="3" fill="#3a4a78"/>
+              <rect x="56" y="152" width="228" height="44" rx="6" fill="#101a36"/>
+              <rect x="64" y="162" width="100" height="8" rx="3" fill="#9fb0c9" opacity="0.6"/>
+              <rect x="64" y="176" width="60" height="6" rx="3" fill="#3a4a78"/>
+              <rect x="56" y="204" width="228" height="44" rx="6" fill="#101a36"/>
+              <rect x="64" y="214" width="80" height="8" rx="3" fill="#9fb0c9" opacity="0.6"/>
+              <rect x="64" y="228" width="60" height="6" rx="3" fill="#3a4a78"/>
+              <!-- kitchen display -->
+              <rect x="320" y="40" width="240" height="220" rx="10" fill="#0a1124" stroke="#1f2a4a"/>
+              <rect x="336" y="56" width="100" height="10" rx="3" fill="#fbbf24" opacity="0.9"/>
+              <rect x="336" y="78" width="208" height="50" rx="6" fill="#101a36"/>
+              <rect x="346" y="92" width="80" height="8" rx="3" fill="#9fb0c9" opacity="0.6"/>
+              <rect x="346" y="108" width="120" height="6" rx="3" fill="#3a4a78"/>
+              <rect x="336" y="140" width="208" height="50" rx="6" fill="#101a36"/>
+              <rect x="346" y="154" width="80" height="8" rx="3" fill="#9fb0c9" opacity="0.6"/>
+              <rect x="346" y="170" width="120" height="6" rx="3" fill="#3a4a78"/>
+              <rect x="336" y="202" width="208" height="46" rx="6" fill="#0a1f1a" stroke="#34d399" stroke-opacity="0.5"/>
+              <rect x="346" y="216" width="60" height="8" rx="3" fill="#34d399" opacity="0.85"/>
+              <rect x="346" y="230" width="120" height="6" rx="3" fill="#3a4a78"/>
+            </svg>
+          </div>
+          <div class="project-body">
+            <div class="project-meta">
+              <span>2024</span><span class="dot"></span><span>POS · Web System</span>
+            </div>
+            <h3 class="project-title">WarungPOS — Resto POS &amp; Kitchen Display</h3>
+            <p class="project-desc">End-to-end ordering for small restaurants. Cashier, kitchen display, and daily reports — all running in a single Laravel + Tailwind app.</p>
+            <div class="project-foot">
+              <div class="project-tags">
+                <span class="tag"><span class="swatch"></span>Laravel</span>
+                <span class="tag emerald"><span class="swatch"></span>Alpine.js</span>
+              </div>
+              <span class="project-link">
+                Details
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+              </span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SERVICES ===================== -->
+<section class="services" id="services" data-screen-label="04 Services">
+  <div class="shell">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow">// services.offered</span>
+        <h2>What I can build for you</h2>
+      </div>
+      <div class="head-aside">
+        <a href="#services">Pricing &amp; FAQ →</a>
+      </div>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <span class="pixel-corner tl"></span><span class="pixel-corner br"></span>
+        <div class="service-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+        </div>
+        <h3>Landing Page &amp; Company Profile</h3>
+        <p>Clean, fast, responsive landing pages and brochure sites built with Astro or Laravel + Tailwind. Includes basic SEO and content sections.</p>
+        <div class="service-foot">
+          <span>FROM · IDR 1.5jt</span>
+          <a class="arrow" href="#contact" aria-label="Request landing page">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="service-card purple reveal">
+        <span class="pixel-corner tl"></span><span class="pixel-corner br"></span>
+        <div class="service-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h10"/><rect x="2" y="3" width="20" height="18" rx="3"/></svg>
+        </div>
+        <h3>Laravel Information System</h3>
+        <p>Tailored Laravel systems: school, inventory, simple ERP, request flows. Role-based access, exportable reports, and a real admin panel.</p>
+        <div class="service-foot">
+          <span>QUOTE BASED</span>
+          <a class="arrow" href="#contact" aria-label="Request Laravel system">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="service-card emerald reveal">
+        <span class="pixel-corner tl"></span><span class="pixel-corner br"></span>
+        <div class="service-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 10h18"/><path d="M8 14h2"/><path d="M14 14h6"/></svg>
+        </div>
+        <h3>Admin Dashboard &amp; Data Tools</h3>
+        <p>From CRUD-heavy back-office tools to charts and exports. Filament, Livewire, or hand-rolled — whichever fits the team's skill best.</p>
+        <div class="service-foot">
+          <span>FROM · IDR 3jt</span>
+          <a class="arrow" href="#contact" aria-label="Request admin dashboard">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="service-card amber reveal">
+        <span class="pixel-corner tl"></span><span class="pixel-corner br"></span>
+        <div class="service-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4"/><path d="m4.93 4.93 2.83 2.83"/><path d="M2 12h4"/><path d="m4.93 19.07 2.83-2.83"/><path d="M12 22v-4"/><path d="m19.07 19.07-2.83-2.83"/><path d="M22 12h-4"/><path d="m19.07 4.93-2.83 2.83"/></svg>
+        </div>
+        <h3>Bug Fixing &amp; Maintenance</h3>
+        <p>Fix that one weird bug, upgrade Laravel, refactor a slow query, or pick up a stuck project. Hourly or fixed scope — your call.</p>
+        <div class="service-foot">
+          <span>HOURLY · NEGO</span>
+          <a class="arrow" href="#contact" aria-label="Request bug fix">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== DEV NOTES ===================== -->
+<section class="devnotes" id="devnotes" data-screen-label="05 Dev Notes">
+  <div class="shell">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow">// dev.notes &middot; spellbook</span>
+        <h2>Commands &amp; concepts I keep referring back to</h2>
+      </div>
+      <div class="head-aside">
+        <a href="#devnotes">Browse all notes →</a>
+      </div>
+    </div>
+
+    <div class="notes-grid">
+      <article class="note-card reveal">
+        <header class="note-head">
+          <span class="note-cat purple"><span class="pill"></span>Laravel</span>
+          <span class="note-id">#001</span>
+        </header>
+        <div class="note-body">
+          <h3 class="note-title">Run database migrations</h3>
+          <code class="note-cmd"><span class="prompt">$</span>php artisan migrate <span class="flag">--seed</span></code>
+          <p class="note-desc">Applies pending migrations and runs seeders right after. Use on fresh setup or to refresh a dev environment quickly.</p>
+        </div>
+        <footer class="note-foot">
+          <span>3 min read</span>
+          <a href="#">Open →</a>
+        </footer>
+      </article>
+
+      <article class="note-card reveal">
+        <header class="note-head">
+          <span class="note-cat"><span class="pill"></span>Git</span>
+          <span class="note-id">#014</span>
+        </header>
+        <div class="note-body">
+          <h3 class="note-title">Undo the last commit (keep changes)</h3>
+          <code class="note-cmd"><span class="prompt">$</span>git reset <span class="flag">--soft</span> <span class="arg">HEAD~1</span></code>
+          <p class="note-desc">Moves HEAD back one commit but leaves files staged. Perfect when you committed too early and want to rework the message or split the change.</p>
+        </div>
+        <footer class="note-foot">
+          <span>2 min read</span>
+          <a href="#">Open →</a>
+        </footer>
+      </article>
+
+      <article class="note-card reveal">
+        <header class="note-head">
+          <span class="note-cat emerald"><span class="pill"></span>Docker</span>
+          <span class="note-id">#022</span>
+        </header>
+        <div class="note-body">
+          <h3 class="note-title">Stop all running containers</h3>
+          <code class="note-cmd"><span class="prompt">$</span>docker stop <span class="arg">$(docker ps -q)</span></code>
+          <p class="note-desc">Quickly halt every running container. Handy after a long dev session before switching projects or rebooting the machine.</p>
+        </div>
+        <footer class="note-foot">
+          <span>1 min read</span>
+          <a href="#">Open →</a>
+        </footer>
+      </article>
+
+      <article class="note-card reveal">
+        <header class="note-head">
+          <span class="note-cat amber"><span class="pill"></span>Flutter</span>
+          <span class="note-id">#030</span>
+        </header>
+        <div class="note-body">
+          <h3 class="note-title">Clean &amp; rebuild after a weird crash</h3>
+          <code class="note-cmd"><span class="prompt">$</span>flutter clean &amp;&amp; flutter pub get</code>
+          <p class="note-desc">When the build cache lies to you. Wipes <code>build/</code> and re-resolves dependencies — fixes the majority of "it worked yesterday" issues.</p>
+        </div>
+        <footer class="note-foot">
+          <span>2 min read</span>
+          <a href="#">Open →</a>
+        </footer>
+      </article>
+
+      <article class="note-card reveal">
+        <header class="note-head">
+          <span class="note-cat rose"><span class="pill"></span>MySQL</span>
+          <span class="note-id">#041</span>
+        </header>
+        <div class="note-body">
+          <h3 class="note-title">Dump a single table for backup</h3>
+          <code class="note-cmd"><span class="prompt">$</span>mysqldump <span class="flag">-u</span> root <span class="flag">-p</span> db users <span class="flag">&gt;</span> users.sql</code>
+          <p class="note-desc">Exports just one table — fast and small. Useful for sharing a sample dataset or restoring specific data without touching the rest.</p>
+        </div>
+        <footer class="note-foot">
+          <span>2 min read</span>
+          <a href="#">Open →</a>
+        </footer>
+      </article>
+
+      <article class="note-card reveal">
+        <header class="note-head">
+          <span class="note-cat"><span class="pill"></span>Terminal</span>
+          <span class="note-id">#055</span>
+        </header>
+        <div class="note-body">
+          <h3 class="note-title">Find files modified in the last hour</h3>
+          <code class="note-cmd"><span class="prompt">$</span>find . <span class="flag">-mmin</span> <span class="arg">-60</span> <span class="flag">-type</span> f</code>
+          <p class="note-desc">Lists files changed in the last 60 minutes. Great for tracking down what got touched during a debugging spree.</p>
+        </div>
+        <footer class="note-foot">
+          <span>1 min read</span>
+          <a href="#">Open →</a>
+        </footer>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SKILL TREE ===================== -->
+<section class="skilltree" data-screen-label="06 Skill Tree">
+  <div class="shell">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow">// skill.tree</span>
+        <h2>Tech stack, plotted like a skill tree</h2>
+      </div>
+      <div class="head-aside">
+        Hover a node to inspect
+      </div>
+    </div>
+
+    <div class="panel skilltree-wrap reveal">
+      <span class="pixel-corner tl"></span><span class="pixel-corner tr"></span>
+      <span class="pixel-corner bl"></span><span class="pixel-corner br"></span>
+
+      <div class="skilltree-canvas" id="skilltree">
+        <!-- connection lines -->
+        <svg class="lines" viewBox="0 0 1000 440" preserveAspectRatio="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="lg" x1="0" x2="1">
+              <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.5"/>
+              <stop offset="100%" stop-color="#22d3ee" stop-opacity="0.1"/>
+            </linearGradient>
+          </defs>
+          <!-- core (500,220) to branches -->
+          <line x1="500" y1="220" x2="180" y2="80"  stroke="url(#lg)" stroke-width="1.5"/>
+          <line x1="500" y1="220" x2="180" y2="220" stroke="url(#lg)" stroke-width="1.5"/>
+          <line x1="500" y1="220" x2="180" y2="360" stroke="url(#lg)" stroke-width="1.5"/>
+          <line x1="500" y1="220" x2="820" y2="80"  stroke="url(#lg)" stroke-width="1.5"/>
+          <line x1="500" y1="220" x2="820" y2="220" stroke="url(#lg)" stroke-width="1.5"/>
+          <line x1="500" y1="220" x2="820" y2="360" stroke="url(#lg)" stroke-width="1.5"/>
+          <line x1="500" y1="220" x2="500" y2="60"  stroke="url(#lg)" stroke-width="1.5"/>
+          <line x1="500" y1="220" x2="500" y2="380" stroke="url(#lg)" stroke-width="1.5" stroke-dasharray="4 4"/>
+        </svg>
+
+        <!-- nodes -->
+        <div class="skill-node core" style="left:50%; top:50%;">
+          <div class="row">
+            <span class="ico">BG</span>
+            <span class="name">Bagaskara</span>
+          </div>
+          <span class="lvl"><span class="strong">LVL 04</span> · WEB MAGE</span>
+        </div>
+
+        <div class="skill-node" style="left:50%; top:13.5%;">
+          <div class="row"><span class="ico">L</span><span class="name">Laravel</span></div>
+          <span class="lvl"><span class="strong">LVL 9</span> · Mastered</span>
+        </div>
+
+        <div class="skill-node" style="left:18%; top:18%;">
+          <div class="row"><span class="ico">A</span><span class="name">Astro</span></div>
+          <span class="lvl"><span class="strong">LVL 7</span> · Skilled</span>
+        </div>
+
+        <div class="skill-node purple" style="left:18%; top:50%;">
+          <div class="row"><span class="ico">T</span><span class="name">Tailwind</span></div>
+          <span class="lvl"><span class="strong">LVL 8</span> · Skilled</span>
+        </div>
+
+        <div class="skill-node emerald" style="left:18%; top:82%;">
+          <div class="row"><span class="ico">M</span><span class="name">MySQL</span></div>
+          <span class="lvl"><span class="strong">LVL 7</span> · Confident</span>
+        </div>
+
+        <div class="skill-node purple" style="left:82%; top:18%;">
+          <div class="row"><span class="ico">G</span><span class="name">Git</span></div>
+          <span class="lvl"><span class="strong">LVL 8</span> · Daily</span>
+        </div>
+
+        <div class="skill-node emerald" style="left:82%; top:50%;">
+          <div class="row"><span class="ico">D</span><span class="name">Docker</span></div>
+          <span class="lvl"><span class="strong">LVL 6</span> · Comfortable</span>
+        </div>
+
+        <div class="skill-node amber" style="left:82%; top:82%;">
+          <div class="row"><span class="ico">F</span><span class="name">Flutter</span></div>
+          <span class="lvl"><span class="strong">LVL 4</span> · Learning</span>
+        </div>
+
+        <div class="skill-node locked" style="left:50%; top:88%;">
+          <div class="row"><span class="ico">?</span><span class="name">Next Quest</span></div>
+          <span class="lvl"><span class="strong">LOCKED</span> · Go / Rust</span>
+        </div>
+      </div>
+
+      <div class="skill-legend">
+        <span class="lg"><span class="sw" style="background:#22d3ee"></span>Web Backend</span>
+        <span class="lg"><span class="sw" style="background:#a78bfa"></span>Frontend / Tooling</span>
+        <span class="lg"><span class="sw" style="background:#34d399"></span>Database / Ops</span>
+        <span class="lg"><span class="sw" style="background:#fbbf24"></span>Mobile</span>
+        <span class="lg" style="margin-left:auto">Last updated · 2026.05 · v0.4</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CONTACT CTA ===================== -->
+<section class="contact" id="contact" data-screen-label="07 Contact">
+  <div class="shell">
+    <div class="contact-panel reveal">
+      <div class="contact-grid">
+        <div>
+          <span class="contact-eyebrow">// new.quest.available</span>
+          <h2>Have a system to build? <span class="accent">Let's start the quest.</span></h2>
+          <p>Whether it's a Laravel admin panel, a small Flutter app, or a one-off bug fix — drop a message. I usually reply within a day.</p>
+          <div class="contact-actions">
+            <a class="btn btn-primary btn-lg" href="mailto:hello@bagaskara.dev">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
+              Send an email
+            </a>
+            <a class="btn btn-ghost btn-lg" href="#">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5a8.38 8.38 0 0 0 .9 3.8L2 22l6.9-1.8a8.5 8.5 0 1 0-5.9-8.7Z"/></svg>
+              WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-list">
+          <a class="contact-row" href="mailto:hello@bagaskara.dev">
+            <span class="ico">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
+            </span>
+            <div>
+              <div class="label">Email</div>
+              <div class="value">hello@bagaskara.dev</div>
+            </div>
+            <span class="go">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+            </span>
+          </a>
+
+          <a class="contact-row purple" href="#">
+            <span class="ico">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55v-1.95c-3.2.7-3.87-1.36-3.87-1.36-.52-1.34-1.27-1.7-1.27-1.7-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.74-1.54-2.55-.29-5.23-1.27-5.23-5.66 0-1.25.45-2.27 1.18-3.07-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.17 1.17.92-.26 1.9-.39 2.88-.39s1.96.13 2.88.39c2.2-1.48 3.17-1.17 3.17-1.17.62 1.59.23 2.76.11 3.05.74.8 1.18 1.82 1.18 3.07 0 4.4-2.69 5.37-5.25 5.65.41.36.78 1.06.78 2.14v3.17c0 .31.21.66.79.55C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5Z"/></svg>
+            </span>
+            <div>
+              <div class="label">GitHub</div>
+              <div class="value">github.com/bagaskara</div>
+            </div>
+            <span class="go">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+            </span>
+          </a>
+
+          <a class="contact-row" href="#">
+            <span class="ico">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.4v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.55V9h3.57v11.45ZM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.73V1.73C24 .77 23.21 0 22.23 0Z"/></svg>
+            </span>
+            <div>
+              <div class="label">LinkedIn</div>
+              <div class="value">linkedin.com/in/bagaskara-gita</div>
+            </div>
+            <span class="go">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+            </span>
+          </a>
+
+          <a class="contact-row emerald" href="#">
+            <span class="ico">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5a8.38 8.38 0 0 0 .9 3.8L2 22l6.9-1.8a8.5 8.5 0 1 0-5.9-8.7Z"/></svg>
+            </span>
+            <div>
+              <div class="label">WhatsApp</div>
+              <div class="value">+62 8xx-xxxx-xxxx</div>
+            </div>
+            <span class="go">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer" data-screen-label="08 Footer">
+  <div class="shell footer-inner">
+    <div class="left">
+      <span class="brand-mark" style="width:28px;height:28px;"><span style="font-size:16px;">BG</span></span>
+      Built by Bagaskara · Astro + Tailwind on GitHub Pages
+    </div>
+    <div class="links">
+      <a href="#about">About</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#services">Services</a>
+      <a href="#devnotes">Dev Notes</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="right">© 2026 · v0.1</div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

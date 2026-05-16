@@ -1,0 +1,104 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import PageHero from '../components/ui/PageHero.astro';
+import { services } from '../data/services';
+import { profile } from '../data/profile';
+---
+
+<PageLayout
+  title={`Services — ${profile.name}`}
+  description="Web systems, landing pages, mobile apps, and bug fixing services by Bagaskara Gita Dewanta."
+>
+  <PageHero
+    eyebrow="// available.quests"
+    title="What I can build for you"
+    subtitle="From full Laravel admin systems to a simple landing page — here's how I can help."
+  />
+
+  <!-- Services grid -->
+  <section style="padding: 0 0 64px; position:relative; z-index:1;">
+    <div class="shell">
+      <div class="services-detail-grid">
+        {services.map((service) => (
+          <article class={`service-detail-card reveal ${service.color !== 'cyan' ? service.color : ''}`}>
+            <div class="sdc-header">
+              <span class="sdc-icon">{service.icon}</span>
+              <div class="sdc-meta">
+                <div class="sdc-category">{service.category}</div>
+                <h2 class="sdc-title">{service.title}</h2>
+              </div>
+            </div>
+
+            <p class="sdc-desc">{service.longDescription}</p>
+
+            <div class="sdc-deliverables">
+              <h4>// deliverables</h4>
+              <ul>
+                {service.deliverables.map((item) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+            </div>
+
+            <div class="sdc-footer">
+              <span class="sdc-duration">{service.duration}</span>
+              <a href="/#contact" class="btn btn-sm btn-ghost">
+                Enquire
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:14px;height:14px;">
+                  <path d="M5 12h14" /><path d="m13 5 7 7-7 7" />
+                </svg>
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <!-- CTA strip -->
+      <div class="services-cta-strip reveal">
+        <div>
+          <h3>Ready to start a quest?</h3>
+          <p>Tell me what you need. I'll reply within 24 hours with a rough scope and timeline.</p>
+        </div>
+        <div class="cta-btns">
+          <a href={`mailto:${profile.contact.email}`} class="btn btn-primary btn-lg">
+            Send an Email
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14" /><path d="m13 5 7 7-7 7" />
+            </svg>
+          </a>
+          <a href={`https://${profile.contact.whatsapp}`} target="_blank" rel="noopener" class="btn btn-ghost btn-lg">
+            WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process section -->
+  <section style="padding: 0 0 96px; position:relative; z-index:1;">
+    <div class="shell">
+      <div class="section-head reveal">
+        <div>
+          <span class="eyebrow">// how.it.works</span>
+          <h2>The quest process</h2>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:18px;" class="reveal">
+        {[
+          { step: '01', icon: '💬', title: 'Brief', desc: 'Tell me what you need via email or WhatsApp. Include scope, deadline, and budget if you have one.' },
+          { step: '02', icon: '📋', title: 'Scope', desc: "I'll map out features, timeline, and deliverables. We agree before any code is written." },
+          { step: '03', icon: '⚡', title: 'Build', desc: 'Development starts. Regular updates at milestones. You can test on a staging URL throughout.' },
+          { step: '04', icon: '🚀', title: 'Ship', desc: 'Final delivery with documentation and source code. I\'m available for 2 weeks of post-launch support.' },
+        ].map((step) => (
+          <div class="panel" style="padding: 24px 20px;">
+            <div style="font-family:var(--font-pixel);font-size:22px;color:var(--amber);margin-bottom:12px;">{step.step}</div>
+            <div style="font-size:24px;margin-bottom:10px;">{step.icon}</div>
+            <div style="font-family:var(--font-display);font-size:17px;font-weight:600;margin-bottom:8px;">{step.title}</div>
+            <p style="font-size:13.5px;color:var(--text-2);line-height:1.6;margin:0;">{step.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</PageLayout>

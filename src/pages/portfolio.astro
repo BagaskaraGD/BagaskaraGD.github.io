@@ -1,0 +1,157 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import PageHero from '../components/ui/PageHero.astro';
+import { projects } from '../data/projects';
+import { profile } from '../data/profile';
+
+const questBorderMap: Record<string, string> = {
+  main: 'rgba(251,191,36,0.45)',
+  side: 'rgba(167,139,250,0.45)',
+  daily: 'rgba(52,211,153,0.45)',
+};
+const questColorMap: Record<string, string> = {
+  main: 'var(--amber)',
+  side: '#c4b5fd',
+  daily: '#6ee7b7',
+};
+const statusColorMap: Record<string, string> = {
+  'completed': 'var(--emerald)',
+  'in-progress': 'var(--amber)',
+  'archived': 'var(--text-3)',
+};
+
+// Unique quest types for filter
+const filterOptions = [
+  { id: 'all', label: 'All Projects', count: projects.length },
+  { id: 'main', label: 'Main Quest', count: projects.filter(p => p.questType === 'main').length },
+  { id: 'side', label: 'Side Quest', count: projects.filter(p => p.questType === 'side').length },
+  { id: 'daily', label: 'Daily / Personal', count: projects.filter(p => p.questType === 'daily').length },
+];
+---
+
+<PageLayout
+  title={`Portfolio — ${profile.name}`}
+  description="Web and mobile projects by Bagaskara Gita Dewanta — Laravel systems, landing pages, and Flutter apps."
+>
+  <PageHero
+    eyebrow="// portfolio.log"
+    title="Projects from the journey"
+    subtitle={`${projects.length} quests completed (and counting).`}
+  />
+
+  <section style="padding: 0 0 80px; position:relative; z-index:1;">
+    <div class="shell">
+
+      <!-- Filter bar -->
+      <div class="filter-bar reveal">
+        {filterOptions.map((f) => (
+          <button
+            class={`filter-btn ${f.id === 'all' ? 'active' : ''}`}
+            data-filter={f.id}
+          >
+            {f.label}
+            <span class="count">{f.count}</span>
+          </button>
+        ))}
+      </div>
+
+      <!-- Projects grid -->
+      <div class="portfolio-page-grid" id="projectsGrid">
+        {projects.map((project) => (
+          <a
+            href={project.link ?? '#'}
+            class="project-card small reveal"
+            data-quest={project.questType}
+          >
+            <span
+              class="quest-tag"
+              style={`border-color: ${questBorderMap[project.questType]}; color: ${questColorMap[project.questType]};`}
+            >
+              {project.questLabel}
+            </span>
+
+            <!-- Status badge -->
+            <span
+              style={`position:absolute;top:14px;right:14px;z-index:2;font-family:var(--font-mono);font-size:10px;padding:3px 8px;border-radius:4px;background:rgba(6,9,18,0.75);color:${statusColorMap[project.status]};border:1px solid ${statusColorMap[project.status]}33;letter-spacing:0.08em;`}
+            >
+              {project.status.toUpperCase().replace('-', ' ')}
+            </span>
+
+            <div class="project-thumb" style={project.thumbBg ? `background: ${project.thumbBg}` : ''}>
+              <svg viewBox="0 0 600 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                <defs>
+                  <linearGradient id={`g-${project.id}`} x1="0" x2="1" y1="0" y2="1">
+                    <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.25" />
+                    <stop offset="100%" stop-color="#a78bfa" stop-opacity="0.10" />
+                  </linearGradient>
+                </defs>
+                <rect width="600" height="300" fill={`url(#g-${project.id})`} />
+                <rect x="40" y="30" width="520" height="50" rx="8" fill="#0a1124" stroke="#1f2a4a" />
+                <rect x="56" y="46" width="100" height="8" rx="3" fill="#22d3ee" opacity="0.7" />
+                <rect x="56" y="62" width="160" height="6" rx="3" fill="#3a4a78" />
+                <rect x="40" y="100" width="240" height="160" rx="8" fill="#0a1124" stroke="#1f2a4a" />
+                <rect x="56" y="116" width="80" height="8" rx="3" fill="#9fb0c9" opacity="0.5" />
+                <rect x="56" y="134" width="200" height="16" rx="3" fill="#22d3ee" opacity="0.6" />
+                <rect x="56" y="162" width="160" height="6" rx="3" fill="#3a4a78" />
+                <rect x="56" y="178" width="130" height="6" rx="3" fill="#3a4a78" />
+                <rect x="56" y="194" width="100" height="6" rx="3" fill="#3a4a78" />
+                <rect x="56" y="218" width="60" height="18" rx="4" fill="#a78bfa" opacity="0.5" />
+                <rect x="300" y="100" width="260" height="160" rx="8" fill="#0a1124" stroke="#1f2a4a" />
+                <polyline points="320,220 360,190 400,205 440,170 480,185 520,155 540,165" fill="none" stroke="#22d3ee" stroke-width="2" />
+                <polyline points="320,220 360,190 400,205 440,170 480,185 520,155 540,165 540,240 320,240" fill="#22d3ee" opacity="0.10" />
+              </svg>
+            </div>
+
+            <div class="project-body">
+              <div class="project-meta">
+                <span>{project.year}</span>
+                <span class="dot"></span>
+                <span>{project.category}</span>
+              </div>
+              <h3 class="project-title">{project.title}</h3>
+              <p class="project-desc">{project.description}</p>
+              <div class="project-foot">
+                <div class="project-tags">
+                  {project.tags.map((tag) => (
+                    <span class={`tag ${tag.color && tag.color !== 'cyan' ? tag.color : ''}`}>
+                      <span class="swatch"></span>{tag.name}
+                    </span>
+                  ))}
+                </div>
+                <span class="project-link">
+                  Details
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M7 17 17 7" /><path d="M7 7h10v10" />
+                  </svg>
+                </span>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</PageLayout>
+
+<script>
+  // Filter functionality
+  const filterBtns = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
+  const cards = document.querySelectorAll<HTMLElement>('#projectsGrid .project-card');
+
+  filterBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const filter = btn.dataset.filter ?? 'all';
+
+      filterBtns.forEach((b) => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      cards.forEach((card) => {
+        if (filter === 'all' || card.dataset.quest === filter) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    });
+  });
+</script>

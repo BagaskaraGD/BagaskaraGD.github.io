@@ -1,0 +1,95 @@
+---
+import { profile } from '../../data/profile';
+---
+
+<section class="hero" id="home">
+  <div class="shell hero-grid">
+    <!-- Left: copy -->
+    <div class="hero-copy reveal">
+      <span class="hero-meta">
+        <span class="pulse"></span>
+        {profile.statusShort}
+        <span class="sep">·</span>
+        <span class="pixel-lvl">{profile.level}</span>
+        <span class="sep">·</span>
+        {profile.location}
+      </span>
+
+      <h1>
+        Building <span class="accent">reliable systems</span><br />
+        one quest at a time<span class="underscore">_</span>
+      </h1>
+
+      <div class="hero-role">
+        {profile.roles.map((role, i) => (
+          <span>
+            {i > 0 && <span class="dot"></span>}
+            {role}
+          </span>
+        ))}
+      </div>
+
+      <p class="hero-tagline">
+        Hi, I'm <strong>{profile.name}</strong> — a developer from Surabaya who builds clean,
+        maintainable web systems with <strong>Laravel</strong> and
+        <strong>Tailwind</strong>, and ships small mobile apps with <strong>Flutter</strong>.
+        This hub is my workshop: portfolio, services, and the dev notes I keep along the way.
+      </p>
+
+      <div class="hero-cta">
+        <a class="btn btn-primary btn-lg" href="/portfolio">
+          View Portfolio
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M5 12h14" /><path d="m13 5 7 7-7 7" />
+          </svg>
+        </a>
+        <a class="btn btn-ghost btn-lg" href="/dev-notes">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="4 17 10 11 4 5" /><line x1="12" y1="19" x2="20" y2="19" />
+          </svg>
+          Read Dev Notes
+        </a>
+        <a class="btn btn-ghost btn-lg" href="/services">See Services</a>
+      </div>
+
+      <div class="hero-stats">
+        {profile.stats.map((s) => (
+          <div>
+            <div class="stat-num">{s.num}<span class="unit">{s.unit}</span></div>
+            <div class="stat-label">{s.label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Right: terminal window -->
+    <div class="terminal reveal" aria-hidden="true">
+      <div class="terminal-bar">
+        <div class="term-dots"><span></span><span></span><span></span></div>
+        <div class="term-title">~/{profile.username} — zsh — 80×24</div>
+        <div class="term-tabs">
+          <span class="active">whoami.sh</span>
+          <span>quests.log</span>
+          <span>readme.md</span>
+        </div>
+      </div>
+      <pre class="terminal-body"><span class="line"><span class="com"># initializing developer profile…</span></span>
+<span class="line"><span class="prompt">{profile.username}@hub</span> <span class="cmd">~</span> $ <span class="cmd">whoami --json</span></span>
+<span class="line"><span class="out">{"{"}</span></span>
+<span class="line"><span class="out">  </span><span class="key">"name"</span><span class="out">: </span><span class="str">"{profile.name}"</span><span class="out">,</span></span>
+<span class="line"><span class="out">  </span><span class="key">"role"</span><span class="out">: </span><span class="str">"{profile.role}"</span><span class="out">,</span></span>
+<span class="line"><span class="out">  </span><span class="key">"location"</span><span class="out">: </span><span class="str">"{profile.locationFull}"</span><span class="out">,</span></span>
+<span class="line"><span class="out">  </span><span class="key">"stack"</span><span class="out">: [</span><span class="str">"Laravel"</span><span class="out">, </span><span class="str">"Tailwind"</span><span class="out">, </span><span class="str">"Flutter"</span><span class="out">, </span><span class="str">"MySQL"</span><span class="out">],</span></span>
+<span class="line"><span class="out">  </span><span class="key">"learning"</span><span class="out">: </span><span class="str">"clean architecture"</span><span class="out">,</span></span>
+<span class="line"><span class="out">  </span><span class="key">"open_to"</span><span class="out">: [</span><span class="str">"freelance"</span><span class="out">, </span><span class="str">"collab"</span><span class="out">]</span></span>
+<span class="line"><span class="out">{"}"}</span></span>
+<span class="line">&nbsp;</span>
+<span class="line"><span class="prompt">{profile.username}@hub</span> <span class="cmd">~</span> $ <span class="fn">quest</span> --list <span class="key">--limit</span> <span class="num">3</span></span>
+<span class="line"><span class="out">  ✦ </span><span class="cmd">PemustakaAward — Gamified Library System</span> <span class="com">(in progress)</span></span>
+<span class="line"><span class="out">  ✦ </span><span class="cmd">TukarKuy — Mobile Barter Marketplace</span></span>
+<span class="line"><span class="out">  ✦ </span><span class="cmd">DinamikaMagang — Internship Management System</span></span>
+<span class="line">&nbsp;</span>
+<span class="line"><span class="prompt">{profile.username}@hub</span> <span class="cmd">~</span> $ <span class="term-cursor"></span></span></pre>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,93 @@
+---
+import { skillNodes } from '../../data/skills';
+import SectionHeader from '../ui/SectionHeader.astro';
+
+// Build connection pairs for SVG lines
+const connections: { x1: number; y1: number; x2: number; y2: number }[] = [];
+const nodeMap = Object.fromEntries(skillNodes.map((n) => [n.id, n]));
+skillNodes.forEach((node) => {
+  node.connections?.forEach((targetId) => {
+    const target = nodeMap[targetId];
+    if (target && node.id < targetId) {
+      connections.push({ x1: node.x, y1: node.y, x2: target.x, y2: target.y });
+    }
+  });
+});
+
+const colorClassMap: Record<string, string> = {
+  cyan: '',
+  purple: 'purple',
+  emerald: 'emerald',
+  amber: 'amber',
+  blue: 'blue',
+  rose: 'rose',
+};
+---
+
+<section class="skilltree" id="skilltree">
+  <div class="shell">
+    <SectionHeader
+      eyebrow="// skill.tree"
+      title="Abilities & tech unlocked so far"
+    />
+
+    <article class="panel skilltree-wrap reveal">
+      <span class="pixel-corner tl"></span>
+      <span class="pixel-corner tr"></span>
+      <span class="pixel-corner bl"></span>
+      <span class="pixel-corner br"></span>
+
+      <div class="skilltree-canvas">
+        <!-- SVG connection lines -->
+        <svg class="lines" aria-hidden="true">
+          {connections.map((c) => (
+            <line
+              x1={`${c.x1}%`} y1={`${c.y1}%`}
+              x2={`${c.x2}%`} y2={`${c.y2}%`}
+              stroke="rgba(34,211,238,0.18)"
+              stroke-width="1.5"
+              stroke-dasharray="6 4"
+            />
+          ))}
+        </svg>
+
+        <!-- Skill nodes -->
+        {skillNodes.map((node) => {
+          const colorClass = colorClassMap[node.color] ?? '';
+          const classes = [
+            'skill-node',
+            node.isCore ? 'core' : '',
+            node.isLocked ? 'locked' : '',
+            !node.isCore && !node.isLocked ? colorClass : '',
+          ].filter(Boolean).join(' ');
+          return (
+            <div
+              class={classes}
+              style={`left: ${node.x}%; top: ${node.y}%;`}
+              title={`${node.name} — LVL ${node.level}/${node.maxLevel}`}
+            >
+              <div class="sn-row">
+                <span class="sn-ico">{node.icon}</span>
+                <span class="sn-name">{node.name}</span>
+              </div>
+              <div class="sn-lvl">
+                LVL <span class="strong">{node.level}</span>/{node.maxLevel}
+                {node.isLocked && ' 🔒'}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      <!-- Legend -->
+      <div class="skill-legend">
+        <span class="lg"><span class="sw" style="background:var(--cyan);"></span>Core / Mastered</span>
+        <span class="lg"><span class="sw" style="background:var(--purple);"></span>Frontend</span>
+        <span class="lg"><span class="sw" style="background:var(--emerald);"></span>Database</span>
+        <span class="lg"><span class="sw" style="background:var(--amber);"></span>Mobile</span>
+        <span class="lg"><span class="sw" style="background:var(--blue);"></span>Tools</span>
+        <span class="lg"><span class="sw" style="background:var(--line-2);border:1px dashed var(--line-strong);"></span>Locked / In Progress</span>
+      </div>
+    </article>
+  </div>
+</section>

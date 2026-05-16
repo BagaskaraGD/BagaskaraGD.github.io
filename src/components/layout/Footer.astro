@@ -1,0 +1,28 @@
+---
+import { profile } from '../../data/profile';
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="shell footer-inner">
+    <div class="left">
+      <span class="brand-mark" style="display:inline-grid;place-items:center;width:28px;height:28px;border:1px solid var(--line-strong);border-radius:6px;background:linear-gradient(180deg,rgba(34,211,238,0.12),rgba(34,211,238,0.02));">
+        <span style="font-family:var(--font-pixel);font-size:16px;color:var(--cyan);">BG</span>
+      </span>
+      <span>
+        © {year} {profile.name}
+        &nbsp;·&nbsp; Built with <span class="heart">♥</span> in Surabaya
+      </span>
+    </div>
+
+    <div class="links">
+      <a href="/about">About</a>
+      <a href="/portfolio">Portfolio</a>
+      <a href="/services">Services</a>
+      <a href="/dev-notes">Dev Notes</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <div class="right">[ JOURNEY CAMP v0.1 ]</div>
+  </div>
+</footer>

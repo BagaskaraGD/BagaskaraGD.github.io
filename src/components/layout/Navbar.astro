@@ -1,0 +1,120 @@
+---
+import { profile } from '../../data/profile';
+
+const { pathname } = Astro.url;
+const isHome = pathname === '/' || pathname === '/index.html';
+
+// URL-based active class (JS overrides on home page via scroll)
+function active(path: string) {
+  if (path === '/') return isHome ? 'is-active' : '';
+  return pathname.startsWith(path) ? 'is-active' : '';
+}
+---
+
+<header class="nav" data-section="navbar">
+  <div class="shell nav-inner">
+    <a href="/" class="brand" aria-label={`${profile.name} — home`}>
+      <span class="brand-mark"><span>BG</span></span>
+      <span class="brand-name">{profile.username}<span class="dot">.</span>dev</span>
+    </a>
+
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a href="/" class={active('/')}>Home</a>
+      <a href="/about" class={active('/about')}>About</a>
+      <a href="/portfolio" class={active('/portfolio')}>Portfolio</a>
+      <a href="/services" class={active('/services')}>Services</a>
+      <a href="/dev-notes" class={active('/dev-notes')}>Dev Notes</a>
+      <a href="/#contact" class={active('/contact')}>Contact</a>
+    </nav>
+
+    <div class="nav-cta">
+      <span class="nav-status" title={profile.status}>
+        <span class="pulse"></span>
+        {profile.status}
+      </span>
+      <a href="/#contact" class="btn btn-primary btn-sm">
+        Start a Quest
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M5 12h14" /><path d="m13 5 7 7-7 7" />
+        </svg>
+      </a>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 6h18" /><path d="M3 12h18" /><path d="M3 18h18" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <nav>
+    <a href="/"><span>Home</span><span class="k">/home</span></a>
+    <a href="/about"><span>About</span><span class="k">/about</span></a>
+    <a href="/portfolio"><span>Portfolio</span><span class="k">/portfolio</span></a>
+    <a href="/services"><span>Services</span><span class="k">/services</span></a>
+    <a href="/dev-notes"><span>Dev Notes</span><span class="k">/dev-notes</span></a>
+    <a href="/#contact"><span>Contact</span><span class="k">/contact</span></a>
+  </nav>
+  <div class="mm-cta">
+    <a class="btn btn-ghost" href="/portfolio">View Portfolio</a>
+    <a class="btn btn-primary" href="/#contact">Start a Quest</a>
+  </div>
+</div>
+
+<script>
+  // Mobile menu toggle
+  const btn = document.getElementById('mobileToggle');
+  const menu = document.getElementById('mobileMenu');
+  if (btn && menu) {
+    btn.addEventListener('click', () => {
+      const open = menu.classList.toggle('open');
+      btn.setAttribute('aria-expanded', String(open));
+      menu.setAttribute('aria-hidden', String(!open));
+    });
+    menu.querySelectorAll('a').forEach((a) =>
+      a.addEventListener('click', () => {
+        menu.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+        menu.setAttribute('aria-hidden', 'true');
+      })
+    );
+  }
+
+  // Scroll-based active detection — home page only
+  (function () {
+    const isHome = location.pathname === '/' || location.pathname === '/index.html';
+    if (!isHome) return;
+
+    const sectionIds = ['home', 'about', 'portfolio', 'services', 'devnotes', 'contact'];
+    const sections = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter(Boolean) as HTMLElement[];
+    const links = document.querySelectorAll<HTMLAnchorElement>('.nav-links a');
+    if (!sections.length || !links.length) return;
+
+    const linkMap: Record<string, HTMLAnchorElement> = {};
+    links.forEach((l) => {
+      const href = l.getAttribute('href') ?? '';
+      if (href.startsWith('#') || href === '/') {
+        const id = href === '/' ? 'home' : href.slice(1);
+        linkMap[id] = l;
+      }
+    });
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            links.forEach((l) => l.classList.remove('is-active'));
+            const link = linkMap[e.target.id];
+            if (link) link.classList.add('is-active');
+          }
+        });
+      },
+      { rootMargin: '-45% 0px -50% 0px', threshold: 0 }
+    );
+    sections.forEach((s) => io.observe(s));
+  })();
+</script>

@@ -1,0 +1,54 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import GameWorldBackground from '../components/ui/GameWorldBackground.astro';
+import Navbar from '../components/layout/Navbar.astro';
+import Footer from '../components/layout/Footer.astro';
+import HeroSection from '../components/home/HeroSection.astro';
+import CharacterProfile from '../components/home/CharacterProfile.astro';
+import FeaturedProjects from '../components/home/FeaturedProjects.astro';
+import ServicesPreview from '../components/home/ServicesPreview.astro';
+import DevNotesPreview from '../components/home/DevNotesPreview.astro';
+import SkillTreePreview from '../components/home/SkillTreePreview.astro';
+import ContactSection from '../components/home/ContactSection.astro';
+import { profile } from '../data/profile';
+---
+
+<BaseLayout title={profile.siteTitle} description={profile.siteDescription}>
+  <GameWorldBackground />
+  <Navbar />
+
+  <main>
+    <HeroSection />
+    <CharacterProfile />
+    <FeaturedProjects />
+    <ServicesPreview />
+    <DevNotesPreview />
+    <SkillTreePreview />
+    <ContactSection />
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<script>
+  // Scroll reveal — shared across the whole page
+  (function () {
+    const els = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) {
+      els.forEach((el) => el.classList.add('in'));
+      return;
+    }
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add('in');
+            io.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
+    );
+    els.forEach((el) => io.observe(el));
+  })();
+</script>

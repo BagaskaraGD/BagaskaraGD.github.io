@@ -1,0 +1,70 @@
+---
+import { notesPreview } from '../../data/notes';
+import SectionHeader from '../ui/SectionHeader.astro';
+
+const colorMap: Record<string, string> = {
+  cyan: '',
+  purple: 'purple',
+  emerald: 'emerald',
+  amber: 'amber',
+  rose: 'rose',
+};
+
+let noteCounter = 0;
+function noteId() {
+  noteCounter++;
+  return `#${String(noteCounter).padStart(3, '0')}`;
+}
+---
+
+<section class="devnotes" id="devnotes">
+  <div class="shell">
+    <SectionHeader
+      eyebrow="// dev.notes"
+      title="Commands & concepts I keep returning to"
+      asideText="Browse all notes →"
+      asideHref="/dev-notes"
+    />
+
+    <div class="notes-grid">
+      {notesPreview.map((note) => {
+        const colorClass = colorMap[note.color] ?? '';
+        const id = noteId();
+        const lines = note.command.split('\n');
+        return (
+          <article class="note-card reveal">
+            <div class="note-head">
+              <span class={`note-cat ${colorClass}`}>
+                <span class="pill"></span>
+                {note.category}
+              </span>
+              <span class="note-id">{id}</span>
+            </div>
+            <div class="note-body">
+              <h3 class="note-title">{note.title}</h3>
+              <code class="note-cmd">
+                {lines.map((line, i) => (
+                  <>
+                    <span class="prompt">$</span> {line}{i < lines.length - 1 ? '\n' : ''}
+                  </>
+                ))}
+              </code>
+              <p class="note-desc">{note.description}</p>
+            </div>
+            <div class="note-foot">
+              <span>{note.category.toUpperCase()}</span>
+              {note.slug && (
+                <a href={`/dev-notes/${note.slug}`}>
+                  Read more
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M5 12h14" /><path d="m13 5 7 7-7 7" />
+                  </svg>
+                </a>
+              )}
+            </div>
+          </article>
+        );
+      })}
+    </div>
+  </div>
+</section>

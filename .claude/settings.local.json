@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(New-Item -ItemType Directory -Force \"d:\\\\Sites\\\\Journey-Camp\\\\.github\\\\workflows\")",
+      "Bash(Out-Null)"
+    ]
+  }
+}

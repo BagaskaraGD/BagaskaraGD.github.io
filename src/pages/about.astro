@@ -1,0 +1,196 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import PageHero from '../components/ui/PageHero.astro';
+import SectionHeader from '../components/ui/SectionHeader.astro';
+import { profile } from '../data/profile';
+import { coreSkillBars, techStack, skillNodes } from '../data/skills';
+
+const barColorMap: Record<string, string> = {
+  cyan: '', purple: 'violet', emerald: 'emerald', amber: 'amber',
+};
+
+// Skill tree connections for SVG lines
+const nodeMap = Object.fromEntries(skillNodes.map((n) => [n.id, n]));
+type LineCoord = { x1: number; y1: number; x2: number; y2: number };
+const connections: LineCoord[] = [];
+skillNodes.forEach((node) => {
+  node.connections?.forEach((targetId) => {
+    const target = nodeMap[targetId];
+    if (target && node.id < targetId) {
+      connections.push({ x1: node.x, y1: node.y, x2: target.x, y2: target.y });
+    }
+  });
+});
+
+const colorClassMap: Record<string, string> = {
+  cyan: '', purple: 'purple', emerald: 'emerald', amber: 'amber', blue: 'blue', rose: 'rose',
+};
+---
+
+<PageLayout
+  title={`About — ${profile.name}`}
+  description={`Learn about ${profile.name}, a web developer from Surabaya specialising in Laravel, Astro, and Flutter.`}
+>
+  <PageHero
+    eyebrow="// character.about"
+    title="Full story behind the keyboard"
+    subtitle={`${profile.role} from ${profile.locationFull} — ${profile.experience} in the field.`}
+  />
+
+  <!-- Bio & Education -->
+  <section class="about-section" style="padding-top: 0;">
+    <div class="shell">
+      <div class="about-bio-grid reveal">
+        <div class="about-bio-text">
+          {profile.bio.map((para) => <p>{para}</p>)}
+        </div>
+
+        <aside>
+          <!-- Education card -->
+          <div class="about-edu-card panel">
+            <span class="pixel-corner tl"></span>
+            <span class="pixel-corner br"></span>
+            <div class="about-edu-icon">🎓</div>
+            <div class="about-edu-label">Education</div>
+            <div class="about-edu-degree">{profile.education.degree}</div>
+            <div class="about-edu-school">{profile.education.school}</div>
+            <div class="about-edu-year">{profile.education.year} · {profile.education.status}</div>
+          </div>
+
+          <!-- Quick stats -->
+          <div class="panel" style="padding: 20px 22px; margin-top: 16px;">
+            <div style="font-family:var(--font-mono);font-size:11px;color:var(--text-3);letter-spacing:0.14em;text-transform:uppercase;margin-bottom:14px;">// quick stats</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+              {profile.stats.map((s) => (
+                <div>
+                  <div style="font-family:var(--font-display);font-size:22px;font-weight:600;color:var(--text-1);line-height:1;">
+                    {s.num}<span style="color:var(--cyan);font-size:16px;">{s.unit}</span>
+                  </div>
+                  <div style="font-family:var(--font-mono);font-size:10px;color:var(--text-3);text-transform:uppercase;letter-spacing:0.12em;margin-top:4px;">{s.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Attributes / Skill Bars -->
+  <section class="about-section">
+    <div class="shell">
+      <SectionHeader eyebrow="// core.attributes" title="Skills & proficiency" />
+      <div class="panel reveal" style="padding: 28px 32px; max-width: 720px;">
+        <span class="pixel-corner tl"></span>
+        <span class="pixel-corner br"></span>
+        {coreSkillBars.map((skill) => (
+          <div class={`bar ${barColorMap[skill.color] ?? ''}`}>
+            <div class="bar-head">
+              <span class="name">{skill.name}</span>
+              <span class="val">{skill.level} / 100</span>
+            </div>
+            <div class="bar-track">
+              <span class="bar-fill" style={`width: ${skill.level}%`}></span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Skill Tree -->
+  <section class="skilltree" id="skills" style="padding-top:0;">
+    <div class="shell">
+      <SectionHeader eyebrow="// skill.tree" title="Abilities unlocked so far" />
+      <article class="panel skilltree-wrap reveal">
+        <span class="pixel-corner tl"></span>
+        <span class="pixel-corner tr"></span>
+        <span class="pixel-corner bl"></span>
+        <span class="pixel-corner br"></span>
+        <div class="skilltree-canvas">
+          <svg class="lines" aria-hidden="true">
+            {connections.map((c) => (
+              <line
+                x1={`${c.x1}%`} y1={`${c.y1}%`}
+                x2={`${c.x2}%`} y2={`${c.y2}%`}
+                stroke="rgba(34,211,238,0.18)" stroke-width="1.5" stroke-dasharray="6 4"
+              />
+            ))}
+          </svg>
+          {skillNodes.map((node) => {
+            const colorClass = colorClassMap[node.color] ?? '';
+            const classes = ['skill-node', node.isCore ? 'core' : '', node.isLocked ? 'locked' : '', !node.isCore && !node.isLocked ? colorClass : ''].filter(Boolean).join(' ');
+            return (
+              <div class={classes} style={`left: ${node.x}%; top: ${node.y}%;`}>
+                <div class="sn-row">
+                  <span class="sn-ico">{node.icon}</span>
+                  <span class="sn-name">{node.name}</span>
+                </div>
+                <div class="sn-lvl">LVL <span class="strong">{node.level}</span>/{node.maxLevel}{node.isLocked ? ' 🔒' : ''}</div>
+              </div>
+            );
+          })}
+        </div>
+        <div class="skill-legend">
+          <span class="lg"><span class="sw" style="background:var(--cyan);"></span>Core / Mastered</span>
+          <span class="lg"><span class="sw" style="background:var(--purple);"></span>Frontend</span>
+          <span class="lg"><span class="sw" style="background:var(--emerald);"></span>Database</span>
+          <span class="lg"><span class="sw" style="background:var(--amber);"></span>Mobile</span>
+          <span class="lg"><span class="sw" style="background:var(--blue);"></span>Tools</span>
+          <span class="lg"><span class="sw" style="background:var(--line-2);border:1px dashed var(--line-strong);"></span>Locked</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Tech Stack -->
+  <section class="about-section">
+    <div class="shell">
+      <SectionHeader eyebrow="// equipment" title="Daily stack & tools" />
+      <div class="reveal" style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:40px;">
+        {techStack.map((tech) => (
+          <span class={`tag ${tech.color !== 'cyan' ? tech.color : ''}`} style="font-size:13px;padding:8px 14px;">
+            <span class="swatch"></span>
+            {tech.name}
+          </span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Learning Journey Timeline -->
+  <section class="about-section">
+    <div class="shell">
+      <SectionHeader eyebrow="// journey.log" title="How I got here" />
+      <div class="timeline reveal" style="max-width: 640px;">
+        {profile.timeline.map((item) => (
+          <div class="timeline-item">
+            <div class="timeline-dot">{item.icon}</div>
+            <div class="timeline-content">
+              <div class="timeline-year">{item.year}</div>
+              <div class="timeline-title">{item.title}</div>
+              <p class="timeline-desc">{item.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</PageLayout>
+
+<script>
+  // Animate skill bars when in view
+  document.querySelectorAll<HTMLElement>('.bar-fill').forEach((b) => {
+    const target = b.style.width;
+    b.style.width = '0%';
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          (e.target as HTMLElement).style.width = target;
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    io.observe(b);
+  });
+</script>
