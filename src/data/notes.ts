@@ -24,6 +24,7 @@ export const noteCategories: NoteCategory[] = [
   { id: 'flutter',  label: 'Flutter',  color: 'amber' },
   { id: 'mysql',    label: 'MySQL',    color: 'emerald' },
   { id: 'terminal', label: 'Terminal', color: 'blue' },
+  { id: 'nestJS',    label: 'nestJS',    color: 'amber' },
 ];
 
 export const allNotes: Note[] = [
@@ -34,7 +35,7 @@ export const allNotes: Note[] = [
     category: 'Git', categoryId: 'git', color: 'rose',
     command: 'git fetch origin\ngit reset --hard origin/main',
     description:
-      'Wipe local changes and hard-reset your branch to match the remote. Use when you want to discard all local commits and get a clean slate.',
+      'Hapus perubahan lokal dan reset branch agar sama persis dengan remote. Gunakan saat ingin membuang commit lokal dan mulai dari kondisi bersih.',
     slug: 'git-reset-to-remote',
   },
   {
@@ -43,7 +44,7 @@ export const allNotes: Note[] = [
     category: 'Git', categoryId: 'git', color: 'rose',
     command: 'git stash\ngit stash pop',
     description:
-      'Temporarily shelve work-in-progress changes so you can switch branches without committing. Pop restores the stashed changes.',
+      'Simpan sementara perubahan yang belum siap di-commit agar bisa pindah branch dengan aman. Pop akan mengembalikan perubahan yang disimpan.',
     slug: 'git-stash-pop',
   },
   {
@@ -52,7 +53,7 @@ export const allNotes: Note[] = [
     category: 'Git', categoryId: 'git', color: 'rose',
     command: 'git branch --merged | grep -v "\\*\\|main\\|dev" | xargs git branch -d',
     description:
-      'Delete all local branches that have already been merged into the current branch. Keeps your branch list clean.',
+      'Hapus semua branch lokal yang sudah digabungkan ke branch aktif. Membantu menjaga daftar branch tetap rapi.',
     slug: 'git-delete-merged-branches',
   },
   {
@@ -61,7 +62,7 @@ export const allNotes: Note[] = [
     category: 'Git', categoryId: 'git', color: 'rose',
     command: 'git log --oneline --graph --decorate --all',
     description:
-      'Display the full commit history as a compact, branched graph. Great for understanding the repository structure at a glance.',
+      'Tampilkan riwayat commit dalam bentuk grafik branch yang ringkas. Cocok untuk memahami struktur repository secara cepat.',
     slug: 'git-log-pretty',
   },
 
@@ -72,7 +73,7 @@ export const allNotes: Note[] = [
     category: 'Laravel', categoryId: 'laravel', color: 'cyan',
     command: 'php artisan migrate:fresh --seed',
     description:
-      'Drop all tables, re-run all migrations, then seed the database. Essential during local development when schema changes frequently.',
+      'Hapus semua tabel, jalankan ulang seluruh migration, lalu isi database dengan seeder. Berguna saat schema sering berubah di development lokal.',
     slug: 'laravel-fresh-migration',
   },
   {
@@ -81,7 +82,7 @@ export const allNotes: Note[] = [
     category: 'Laravel', categoryId: 'laravel', color: 'cyan',
     command: 'php artisan make:model Item -mcr',
     description:
-      'Create a Model, Migration, Controller (resource) in one command. The fastest way to scaffold a new resource in Laravel.',
+      'Buat Model, Migration, dan Controller resource dalam satu command. Cara cepat untuk menyiapkan resource baru di Laravel.',
     slug: 'artisan-make-all',
   },
   {
@@ -90,7 +91,7 @@ export const allNotes: Note[] = [
     category: 'Laravel', categoryId: 'laravel', color: 'cyan',
     command: 'php artisan optimize:clear',
     description:
-      'Clear config, route, view, event, and cache in one command. Run this when config changes don\'t seem to take effect.',
+      'Bersihkan config, route, view, event, dan cache dalam satu command. Jalankan saat perubahan konfigurasi belum terlihat di aplikasi.',
     slug: 'laravel-cache-clear',
   },
   {
@@ -99,7 +100,7 @@ export const allNotes: Note[] = [
     category: 'Laravel', categoryId: 'laravel', color: 'cyan',
     command: 'php artisan storage:link',
     description:
-      'Create a symbolic link from public/storage to storage/app/public. Required for serving uploaded files via the web.',
+      'Buat symbolic link dari public/storage ke storage/app/public. Dibutuhkan agar file upload bisa diakses melalui web.',
     slug: 'laravel-storage-link',
   },
   {
@@ -108,7 +109,7 @@ export const allNotes: Note[] = [
     category: 'Laravel', categoryId: 'laravel', color: 'cyan',
     command: 'php artisan queue:work --tries=3 --timeout=90',
     description:
-      'Start a queue worker that processes jobs. Use --tries to limit retry attempts and --timeout to kill stuck jobs.',
+      'Jalankan queue worker untuk memproses job. Gunakan --tries untuk membatasi percobaan ulang dan --timeout untuk menghentikan job yang macet.',
     slug: 'laravel-queue-worker',
   },
 
@@ -119,7 +120,7 @@ export const allNotes: Note[] = [
     category: 'Docker', categoryId: 'docker', color: 'purple',
     command: 'docker compose up -d --build',
     description:
-      'Start all services defined in docker-compose.yml in detached mode and rebuild images if Dockerfile changed.',
+      'Jalankan semua service di docker-compose.yml dalam mode background dan rebuild image jika Dockerfile berubah.',
     slug: 'docker-compose-up',
   },
   {
@@ -128,7 +129,7 @@ export const allNotes: Note[] = [
     category: 'Docker', categoryId: 'docker', color: 'purple',
     command: 'docker compose exec app bash',
     description:
-      'Open an interactive shell inside a running container. Replace "app" with your service name from docker-compose.yml.',
+      'Buka shell interaktif di dalam container yang sedang berjalan. Ganti "app" dengan nama service dari docker-compose.yml.',
     slug: 'docker-exec-container',
   },
   {
@@ -137,7 +138,7 @@ export const allNotes: Note[] = [
     category: 'Docker', categoryId: 'docker', color: 'purple',
     command: 'docker system prune -af --volumes',
     description:
-      'Remove all stopped containers, unused images, unused networks, and dangling volumes. Frees significant disk space.',
+      'Hapus container yang berhenti, image tidak terpakai, network tidak terpakai, dan volume menggantung. Berguna untuk mengosongkan ruang disk.',
     slug: 'docker-system-prune',
   },
 
@@ -148,7 +149,7 @@ export const allNotes: Note[] = [
     category: 'Flutter', categoryId: 'flutter', color: 'amber',
     command: 'flutter pub get\nflutter run -d chrome',
     description:
-      'Install dependencies then run the app on Chrome. Useful for testing Flutter Web locally or debugging widget layout.',
+      'Install dependency lalu jalankan aplikasi di Chrome. Berguna untuk mengetes Flutter Web secara lokal atau debug layout widget.',
     slug: 'flutter-pub-get',
   },
   {
@@ -157,7 +158,7 @@ export const allNotes: Note[] = [
     category: 'Flutter', categoryId: 'flutter', color: 'amber',
     command: 'flutter build apk --release --split-per-abi',
     description:
-      'Build a release APK split by CPU architecture. Produces smaller APKs than a fat binary.',
+      'Build APK release yang dipisah berdasarkan arsitektur CPU. Hasil APK biasanya lebih kecil dibanding satu file besar untuk semua arsitektur.',
     slug: 'flutter-build-apk',
   },
 
@@ -168,7 +169,7 @@ export const allNotes: Note[] = [
     category: 'MySQL', categoryId: 'mysql', color: 'emerald',
     command: 'mysqldump -u root -p dbname > backup.sql',
     description:
-      'Export a full database dump to a SQL file. Run without --no-data to include table data, or add it to export structure only.',
+      'Export seluruh database ke file SQL. Jalankan tanpa --no-data untuk menyertakan isi tabel, atau tambahkan opsi itu jika hanya butuh struktur.',
     slug: 'mysql-dump',
   },
   {
@@ -177,7 +178,7 @@ export const allNotes: Note[] = [
     category: 'MySQL', categoryId: 'mysql', color: 'emerald',
     command: 'mysql -u root -p dbname < backup.sql',
     description:
-      'Import a previously exported SQL file into a database. Create the target database first if it doesn\'t exist.',
+      'Import file SQL yang sudah diexport ke dalam database. Buat database tujuan terlebih dahulu jika belum ada.',
     slug: 'mysql-import',
   },
   {
@@ -186,7 +187,7 @@ export const allNotes: Note[] = [
     category: 'MySQL', categoryId: 'mysql', color: 'emerald',
     command: 'SHOW FULL PROCESSLIST;\nSHOW STATUS LIKE "Slow_queries";',
     description:
-      'Check currently running queries and the count of slow queries. Useful when the app feels sluggish and you suspect N+1 or missing indexes.',
+      'Cek query yang sedang berjalan dan jumlah slow query. Berguna saat aplikasi terasa lambat dan kamu curiga ada N+1 atau index yang kurang.',
     slug: 'mysql-slow-queries',
   },
 
@@ -197,7 +198,7 @@ export const allNotes: Note[] = [
     category: 'Terminal', categoryId: 'terminal', color: 'blue',
     command: 'lsof -i :8000\n# Windows: netstat -ano | findstr :8000',
     description:
-      'Find which process is occupying a specific port. Useful when "port already in use" errors appear.',
+      'Cari proses yang sedang memakai port tertentu. Berguna saat muncul error "port already in use".',
     slug: 'terminal-find-port',
   },
   {
@@ -206,10 +207,48 @@ export const allNotes: Note[] = [
     category: 'Terminal', categoryId: 'terminal', color: 'blue',
     command: 'du -sh * | sort -rh | head -20',
     description:
-      'Show the 20 largest items in the current directory sorted by size. Great for finding what\'s eating your disk space.',
+      'Tampilkan 20 item terbesar di folder saat ini, diurutkan berdasarkan ukuran. Cocok untuk mencari penyebab disk cepat penuh.',
     slug: 'terminal-disk-usage',
   },
+  // ── Nest JS ──────────────────────────────────────────────
+  {
+    id: 'install-global-nest',
+    title: 'Install NestJS CLI',
+    category: 'NestJS', categoryId: 'nestjs', color: 'amber',
+    command: 'npm i -g @nestjs/cli',
+    description:
+      'Install NestJS CLI secara global. Dengan ini kamu bisa membuat dan mengelola project NestJS langsung dari terminal.',
+    slug: 'install-global-nest',
+  },
+  {
+    id: 'create-nest-project',
+    title: 'Create NestJS Project',
+    category: 'NestJS', categoryId: 'nestjs', color: 'amber',
+    command: 'nest new project-name',
+    description:
+      'Buat project NestJS baru dengan nama yang ditentukan. CLI akan meminta pilihan package manager dan menyiapkan struktur project.',
+    slug: 'create-nest-project',
+  },
+  {
+    id: 'start-nest',
+    title: 'Start NestJS Application',
+    category: 'NestJS', categoryId: 'nestjs', color: 'amber',
+    command: 'npm run start',
+    description:
+      'Jalankan aplikasi NestJS menggunakan script start default. Cocok dipakai setelah dependency dan environment variable sudah siap.',
+    slug: '',
+  },
+  {
+    id: 'start-nest-dev',
+    title: 'Start NestJS in Development Mode',
+    category: 'NestJS', categoryId: 'nestjs', color: 'amber',
+    command: 'npm run start:dev',
+    description:
+      'Jalankan aplikasi NestJS dalam mode development dengan file watching aktif. Server akan restart otomatis saat ada perubahan source file.',
+    slug: 'start-nest-dev',
+  }
 ];
+
 
 // Preview subset for Home page (first 6)
 export const notesPreview = allNotes.slice(0, 6);
