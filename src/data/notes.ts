@@ -24,7 +24,7 @@ export const noteCategories: NoteCategory[] = [
   { id: 'flutter',  label: 'Flutter',  color: 'amber' },
   { id: 'mysql',    label: 'MySQL',    color: 'emerald' },
   { id: 'terminal', label: 'Terminal', color: 'blue' },
-  { id: 'nestJS',    label: 'nestJS',    color: 'amber' },
+  { id: 'nestjs',   label: 'NestJS',   color: 'amber' },
 ];
 
 export const allNotes: Note[] = [
